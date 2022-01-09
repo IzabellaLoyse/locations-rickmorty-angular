@@ -14,7 +14,6 @@ export class SearchComponent implements OnInit {
   showDataList = true;
 
   allLocations: ILocation[] = [];
-  //locations$: Observable<ILocation[]> = new Observable<ILocation[]>();
   searchLocations$: Observable<ILocation[]> = new Observable<ILocation[]>();
 
   constructor(private locationsService: LocationsService) {}
@@ -27,7 +26,7 @@ export class SearchComponent implements OnInit {
     );
 
     if (this.search.value === '') {
-      return alert('Insira o nome da localidade');
+      return alert('Insira um nome para pesquisar');
     }
 
     this.showDataList = !this.showDataList;

@@ -18,20 +18,19 @@
 <ng-template #showBlock>
   <table *ngIf="searchLocations$ | async as allLocations">
     <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Tipo</th>
-      <th>Dimensao</th>
-    </tr>
-  </thead>
+      <tr>
+        <th>Nome</th>
+        <th>Tipo</th>
+        <th>Dimensao</th>
+      </tr>
+    </thead>
 
-  <tbody *ngFor="let location of allLocations">
-    <tr>
-      <td>{{ location.name }}</td>
-      <td>{{ location.type }}</td>
-      <td>{{ location.dimension }}</td>
-    </tr>
-  </tbody>
+    <tbody *ngFor="let location of allLocations">
+      <tr>
+        <td>{{ location.name }}</td>
+        <td>{{ location.type }}</td>
+        <td>{{ location.dimension }}</td>
+      </tr>
+    </tbody>
   </table>
-
 </ng-template>
