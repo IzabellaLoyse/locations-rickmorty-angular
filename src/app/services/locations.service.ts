@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ILocation } from '../interfaces/i-location';
-import { catchError, map, retry } from 'rxjs';
+import { catchError, delay, map, retry } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -25,6 +25,7 @@ export class LocationsService {
         const { results } = response;
         return results;
       }),
+      delay(2000),
       catchError(this.handleError())
     );
   }

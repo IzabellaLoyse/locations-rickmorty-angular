@@ -1,5 +1,24 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  outline-offset: 0.25rem;
+}
+
+body {
+  align-items: center;
+  background-color: rgb(241, 241, 241);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  line-height: 1.5rem;
+  width: 100%;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
 }

@@ -1,17 +1,25 @@
-<table *ngIf="locations$ | async as allLocations">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Tipo</th>
-      <th>Dimensao</th>
-    </tr>
-  </thead>
+<div class="table-responsive">
+  <table
+    *ngIf="locations$ | async as allLocations; else loading"
+    class="table border-dark">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Dimensão</th>
+      </tr>
+    </thead>
 
-  <tbody *ngFor="let location of allLocations">
-    <tr>
-      <td>{{ location.name }}</td>
-      <td>{{ location.type }}</td>
-      <td>{{ location.dimension }}</td>
-    </tr>
-  </tbody>
-</table>
+    <tbody *ngFor="let location of allLocations">
+      <tr>
+        <td scope="row">{{ location.name }}</td>
+        <td scope="row">{{ location.type }}</td>
+        <td scope="row">{{ location.dimension }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #loading>
+  <span>Carregando as localidades...</span>
+</ng-template>

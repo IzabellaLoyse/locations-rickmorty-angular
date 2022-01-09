@@ -1,9 +1,12 @@
 <app-header></app-header>
 
-<section>
+<section class="container-search">
   <div>
+    <label for="search" class="sr-only">Buscar Localidade</label>
     <input
       type="text"
+      id="search"
+      name="search"
       placeholder="Buscar localidade..."
       [formControl]="search"
     />
@@ -16,21 +19,26 @@
 </section>
 
 <ng-template #showBlock>
-  <table *ngIf="searchLocations$ | async as allLocations">
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Tipo</th>
-        <th>Dimensao</th>
-      </tr>
-    </thead>
+  <div class="table-responsive table-wrapper">
+    <table
+      *ngIf="searchLocations$ | async as allLocations"
+      class="table border-dark">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Dimensão</th>
+        </tr>
+      </thead>
 
-    <tbody *ngFor="let location of allLocations">
-      <tr>
-        <td>{{ location.name }}</td>
-        <td>{{ location.type }}</td>
-        <td>{{ location.dimension }}</td>
-      </tr>
-    </tbody>
-  </table>
+      <tbody *ngFor="let location of allLocations">
+        <tr>
+          <td scope="row">{{ location.name }}</td>
+          <td scope="row">{{ location.type }}</td>
+          <td scope="row">{{ location.dimension }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </ng-template>
+
